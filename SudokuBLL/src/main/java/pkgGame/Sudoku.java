@@ -154,7 +154,6 @@ public class Sudoku extends LatinSquare {
 	}
 	
 	private void shuffleArray(int[] arr) {
-		ArrayUtils.shuffle(arr);
 		
 	}
 	
