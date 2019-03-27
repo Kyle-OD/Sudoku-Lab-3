@@ -2,6 +2,7 @@ package pkgGame;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
 import org.apache.commons.lang.ArrayUtils;
 
@@ -146,18 +147,46 @@ public class Sudoku extends LatinSquare {
 	}
 	
 	public void PrintPuzzle() {
-		
+		int[][] puzzle = super.getLatinSquare();
+		for(int iRow = 0;)
 	}
 	
 	private void SetRegion(int r) {
+		int[][] puzzle = super.getLatinSquare();
 		
+		int i = (r / iSqrtSize) * iSqrtSize;
+		int j = (r % iSqrtSize) * iSqrtSize;		
+		int jMax = j + iSqrtSize;
+		int iMax = i + iSqrtSize;
+		int iCnt = 1;
+
+		for (; i < iMax; i++) {
+			for (j = (r % iSqrtSize) * iSqrtSize; j < jMax; j++) {
+				puzzle[i][j] = iCnt++;				
+			}
+		}
 	}
 	
 	private void shuffleArray(int[] arr) {
-		
+		Collections.shuffle(Arrays.asList(arr));
 	}
 	
 	private void ShuffleRegion(int r) {
+		int[] reg = this.getRegion(r);
+		shuffleArray(reg);
+		int[][] puzzle = super.getLatinSquare();
+		
+		int i = (r / iSqrtSize) * iSqrtSize;
+		int j = (r % iSqrtSize) * iSqrtSize;		
+		int jMax = j + iSqrtSize;
+		int iMax = i + iSqrtSize;
+		int iCnt = 0;
+
+		for (; i < iMax; i++) {
+			for (j = (r % iSqrtSize) * iSqrtSize; j < jMax; j++) {
+				puzzle[i][j] = reg[iCnt++];				
+			}
+		}
 		
 	}
 }
