@@ -150,9 +150,9 @@ public class Sudoku extends LatinSquare {
 		int[][] puzzle = super.getLatinSquare();
 		for(int iRow = 0; iRow<this.iSize;iRow++) {
 			for(int iCol = 0; iCol<this.iSize;iCol++) {
-				if((iCol+1) == this.iSize) System.out.println(puzzle[iRow][iCol]);
-				else System.out.print(puzzle[iRow][iCol]+" ");
+				System.out.print(puzzle[iRow][iCol]+" ");
 			}
+			System.out.println();
 		}
 	}
 	
