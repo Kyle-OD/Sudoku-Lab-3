@@ -148,7 +148,12 @@ public class Sudoku extends LatinSquare {
 	
 	public void PrintPuzzle() {
 		int[][] puzzle = super.getLatinSquare();
-		for(int iRow = 0;)
+		for(int iRow = 0; iRow<this.iSize;iRow++) {
+			for(int iCol = 0; iCol<this.iSize;iCol++) {
+				if((iCol+1) == this.iSize) System.out.println(puzzle[iRow][iCol]);
+				else System.out.print(puzzle[iRow][iCol]+" ");
+			}
+		}
 	}
 	
 	private void SetRegion(int r) {
@@ -173,7 +178,7 @@ public class Sudoku extends LatinSquare {
 	
 	private void ShuffleRegion(int r) {
 		int[] reg = this.getRegion(r);
-		shuffleArray(reg);
+		this.shuffleArray(reg);
 		int[][] puzzle = super.getLatinSquare();
 		
 		int i = (r / iSqrtSize) * iSqrtSize;
