@@ -39,6 +39,13 @@ public class Sudoku extends LatinSquare {
 
 	}
 	
+	private void FillDiagonalRegions() {
+		for(int iRgnNbr = 0; iRgnNbr<this.iSize;iRgnNbr+=(iSqrtSize+1)) {
+			this.SetRegion(iRgnNbr);
+			this.ShuffleRegion(iRgnNbr);
+		}
+	}
+	
 	public int[][] getPuzzle() {
 		return super.getLatinSquare();
 	}
