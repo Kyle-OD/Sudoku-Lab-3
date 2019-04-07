@@ -7,7 +7,6 @@ import java.util.Arrays;
 import org.junit.Test;
 
 public class SudokuTest {
-/*
 	@Test
 	public void Sudoku_Test1() {
 
@@ -229,7 +228,7 @@ public class SudokuTest {
 			fail("Test failed to build a Sudoku");
 		}
 		
-	}	*/
+	}
 
 	@Test
 	public void TestRegionNbr()

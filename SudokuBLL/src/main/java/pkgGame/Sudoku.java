@@ -91,6 +91,12 @@ public class Sudoku extends LatinSquare {
 	
 		return (super.getPV().size() > 0);
 	}
+	
+	public int getRegionNbr(int iCol, int iRow) {
+		int nbr = (iCol / iSqrtSize) + ((iRow / iSqrtSize) * iSqrtSize);
+		
+		return nbr;
+	}
 
 	public boolean isPartialSudoku() {
 
