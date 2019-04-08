@@ -25,6 +25,8 @@ public class Sudoku extends LatinSquare {
 		} else {
 			throw new Exception("Invalid size");
 		}
+		int[][] puzzle = new int[iSize][iSize];
+		this.setLatinSquare(puzzle);
 	}
 	
 	public Sudoku(int[][] puzzle) throws Exception {
@@ -180,13 +182,22 @@ public class Sudoku extends LatinSquare {
 
 		for (; i < iMax; i++) {
 			for (j = (r % iSqrtSize) * iSqrtSize; j < jMax; j++) {
-				puzzle[i][j] = iCnt++;				
+				puzzle[i][j] = iCnt++;	
 			}
 		}
 	}
 	
 	private void shuffleArray(int[] arr) {
-		Collections.shuffle(Arrays.asList(arr));
+		ArrayList<Integer> list = new ArrayList<>();
+		  for (int i : arr) {
+		    list.add(i);
+		  }
+
+		  Collections.shuffle(list);
+
+		  for (int i = 0; i < list.size(); i++) {
+		    arr[i] = list.get(i);
+		  } 
 	}
 	
 	private void ShuffleRegion(int r) {
